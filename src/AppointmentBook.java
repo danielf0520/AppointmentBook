@@ -1,3 +1,5 @@
+import java.time.Period;
+
 public class AppointmentBook {
     private boolean[][] schedule;
 
@@ -19,8 +21,10 @@ public class AppointmentBook {
             if (isMinuteFree(period, i))
             {
                 block++;
-                if (block == duration) ;
-                return i - duration + 1;
+                if(block == duration);
+                {
+                    return i - duration + 1;
+                }
                 else block = 0;
                 return -1;
             }
@@ -34,7 +38,15 @@ public class AppointmentBook {
        for (int i = 41; i < 60; i++) schedule[2][i] = true;
        for (int i = 5; i < 30; i++) schedule[3][i] = true;
        for (int i = 44; i < 60; i++) schedule[3][i] = true;
-       for(int i= startPeriod; i <= endPeriod; i++)
+       for(int i= startPeriod; i <= endPeriod; i++);
+       int freeBlock = findFreeBlock(i, duration);
+       if(freeBlock > 1)
+       {
+           reserveBlock(i, freeBlock, duration);
+           return true;
+       }
+       return false;
+
     }
 
 
@@ -48,9 +60,15 @@ public class AppointmentBook {
     {
         for(int i = startMinute; i < startMinute + duration; i++)
             schedule[period  - 1][i] = false;
-        int freeBlock = findFreeBlock(i, duration)
+        int freeBlock = findFreeBlock(i, duration);
+        for( int i = startMinute; i < startMinute + duration; i++);
+        schedule[period - 1][i] = false;
+
 
     }
+
+
+
 
 
     }
