@@ -17,6 +17,8 @@ AppointmentBook a = new AppointmentBook(schedule);
         }
         b.printPeriod(4);
         System.out.println(b.makeAppointment(2, 4, 22));
+        System.out.println(b.makeAppointment(3, 4, 3));
+        System.out.println(b.makeAppointment(2, 4, 30));
         b.printPeriod(4);
     }
 
